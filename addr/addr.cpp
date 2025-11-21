@@ -28,7 +28,7 @@ struct Addr {
 	}
 
 	static Addr resolve(const char* name, u16 port) {
-		struct hostent* host_ent = ::gethostbyname(name);
+		struct hostent* host_ent = ::gethostbyname(name); // TODO: deprecated, use ::getaddrinfo
 		Addr addr;
 		if (host_ent != nullptr && (host_ent->h_addrtype == AF_INET || host_ent->h_addrtype == AF_INET6)) {
 			addr.name = name;
